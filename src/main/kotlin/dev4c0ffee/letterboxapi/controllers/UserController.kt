@@ -1,7 +1,7 @@
 package dev4c0ffee.letterboxapi.controllers
 
 import dev4c0ffee.letterboxapi.entities.User
-import dev4c0ffee.letterboxapi.dao.UserRepository
+import dev4c0ffee.letterboxapi.daos.UserRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
