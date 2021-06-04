@@ -14,7 +14,7 @@ abstract class BaseEntity {
     @Id
     var id: String = ""
 
-    var create_time: LocalDateTime? = null
+    var createdTime: LocalDateTime? = null
 
-    var update_time: LocalDateTime? = null
+    var updatedTime: LocalDateTime? = null
 }
