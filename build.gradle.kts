@@ -11,6 +11,7 @@ plugins {
 group = "dev4c0ffee"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_16
+java.targetCompatibility = JavaVersion.VERSION_16
 
 repositories {
     mavenCentral()
