@@ -1,0 +1,44 @@
+version: '3'
+networks:
+  docker-net:
+    driver: bridge
+services:
+  mariadb-dev:
+    container_name: mariadb-dev
+    image: mariadb:10.6.0
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: P@ssw0rd
+    volumes:
+      - /home/ivanchan/Projects/docker_vol/mariadb/db:/var/lib/mysql
+      - /home/ivanchan/Projects/docker_vol/mariadb/logs:/var/log/mariadb
+    restart: always
+    networks:
+      - docker-net
+  mongo-dev:
+    container_name: mongo-dev
+    image: mongo:4.4.6
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_DATABASE=letterboxdb
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - /home/ivanchan/Projects/docker_vol/mongo/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - /home/ivanchan/Projects/docker_vol/mongo/db:/data/db
+    restart: always
+    networks:
+      - docker-net
+  redis-dev:
+    container_name: redis
+    image: redis:6.2.3
+    ports:
+      - 6379:6379
+    volumes:
+      - /home/ivanchan/Projects/docker_vol/redis/db:/var/lib/redis
+      - /home/ivanchan/Projects/docker_vol/redis/logs:/var/log/redis
+    restart: always
+    networks:
+      - docker-net

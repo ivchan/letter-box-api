@@ -30,10 +30,7 @@ class AdminService : BaseService() {
     @Transactional
     fun updateUser(user: User): User {
         if (user.id.isEmpty()) throw CustomError("Invalid ID")
-        val u = userRepo.findByIdOrNull(user.id)
-        if (u == null) {
-            throw CustomError("user does not exist.")
-        }
+        val u = userRepo.findByIdOrNull(user.id) ?: throw CustomError("user does not exists.")
         u.userName = user.userName
         u.email = user.email
         u.status = user.status
