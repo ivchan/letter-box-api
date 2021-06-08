@@ -17,4 +17,5 @@ abstract class BaseEntity {
     var createdTime: LocalDateTime? = null
 
     var updatedTime: LocalDateTime? = null
+
 }
